@@ -3,7 +3,7 @@ import os
 import requests
 
 MEDIA_URL = "https://api.sonix.ai/v1/media"
-headers = {'Authorization' : 'Bearer %s' % (API_KEY,)}
+headers = {'Authorization': f'Bearer {API_KEY}'}
 
 
 def upload_media(file):
@@ -21,6 +21,6 @@ def list_media():
 
 
 def get_transcript(media_id):
-    full_url = "%s/%s/transcript" % (MEDIA_URL, media_id)
+    full_url = f"{MEDIA_URL}/{media_id}/transcript"
     transcript = requests.get(full_url, headers=headers)
     print(transcript.content)
